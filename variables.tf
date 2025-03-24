@@ -7,7 +7,12 @@ variable "api_gateway_execution_arn" {
   type        = string
 }
 
-variable "local_name" {
-  description = "Concatenation of product name, release name and environment"
+variable "jwt_secret" {
+  description = "JWT Secret Key"
+  type        = string
+}
+
+variable "bucket" {
+  description = "Bucket Tf state"
   type        = string
 }
