@@ -1,16 +1,16 @@
 resource "aws_lambda_layer_version" "jwt_layer" {
   layer_name          = "jwt-layer"
   compatible_runtimes = ["python3.9"]
-  filename            = "modules/lambda-authorizer/build/lambda_layer.zip"
+  filename            = "build/lambda_layer.zip"
 }
 
 resource "aws_lambda_function" "authorizer" {
   function_name    = "${var.local_name}-lambda-authorizer"
-  role             = "arn:aws:iam::953430082388:role/LabRole" // Precisa atualizar com o ID da conta AWS
+  role             = "arn:aws:iam::462067075915:role/LabRole" // Precisa atualizar com o ID da conta AWS
   handler          = "authorizer.lambda_handler"
   runtime          = "python3.9"
-  filename         = "modules/lambda-authorizer/build/authorizer.zip"
-  source_code_hash = filebase64sha256("modules/lambda-authorizer/build/authorizer.zip")
+  filename         = "build/authorizer.zip"
+  source_code_hash = filebase64sha256("build/authorizer.zip")
   memory_size      = 128
   timeout          = 5
 

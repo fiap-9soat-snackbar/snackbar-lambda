@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  dispatch_infra_pipeline:
+  dispatch_lambda_pipeline:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Serverless Commit Event

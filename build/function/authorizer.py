@@ -7,7 +7,7 @@ JWT_SECRET = "3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b"
 JWT_ALGORITHM = "HS256"
 
 # URL do endpoint de refresh (ajuste conforme o necessário)
-AUTH_REFRESH_ENDPOINT = "http://localhost:8080/api/user/auth/refresh"
+AUTH_REFRESH_ENDPOINT = "https://p4520f6643.execute-api.us-east-1.amazonaws.com/refresh"
 
 def refresh_token(cpf):
     """
@@ -16,7 +16,7 @@ def refresh_token(cpf):
     """
     try:
         payload = {"cpf": cpf}
-        response = requests.post(AUTH_REFRESH_ENDPOINT, json=payload, timeout=5)
+        response = requests.post(AUTH_REFRESH_ENDPOINT, json=payload, timeout=20)
 
         if response.status_code == 200:
             # Ajuste conforme o nome do campo que vem no JSON de resposta
